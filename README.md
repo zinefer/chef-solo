@@ -35,23 +35,36 @@ knife solo clean user@host
 
 ## Testing
 
-Install VirtualBox 
-Add `C:\Program Files\Oracle\VirtualBox` to windows PATH
+- Install VirtualBox 
+- Add `C:\Program Files\Oracle\VirtualBox` to windows PATH
 
 ```
 wget https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb
 sudo dpkg -i vagrant_2.2.3_x86_64.deb
 ```
 
-Install Vagrant for Windows (versions must match)
+- Install Vagrant for Windows (versions must match)
 
 ```
 gem install kitchen 
 gem install kitchen-vagrant
 gem install kitchen-inspec
 
-echo 'export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"' | sudo tee -a ~/.bashrc
-echo 'export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/c/Users/username/Documents/"' | sudo tee -a ~/.bashrc
+echo 'export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"' >> ~/.bashrc
+echo 'export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/c/Users/username/Documents/"' >> ~/.bashrc
 
 vagrant plugin install vagrant-vbguest
+```
+
+### Running the suite
+
+```
+kitchen create
+kitchen converge
+kitchen verify
+kitchen destroy
+```
+or
+```
+kitchen test
 ```
