@@ -1,0 +1,8 @@
+#! /bin/sh
+printf "\n"
+ls /etc/update-motd.d/forts/ |sort -R |tail -$N |while read file; do
+  cat /etc/update-motd.d/forts/$file
+  break
+  # Something involving $file, or you can leave
+  # off the while to just get the filenames
+done

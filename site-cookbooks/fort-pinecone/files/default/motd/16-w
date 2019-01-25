@@ -1,0 +1,14 @@
+#! /bin/sh
+printf "\n"
+count=$(expr $(w | wc -l) - 2)
+echo "There are currently $count active ssh sessions not including you"
+w | gawk 'NR>2 {
+    id[$1][$3]++
+    count++
+} 
+END {
+   print "USER IP COUNT"
+   for(user in id)
+     for(ip in id[user])
+       print user" "ip" "id[user][ip]
+}' | sort | column -t

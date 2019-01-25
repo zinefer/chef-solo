@@ -5,3 +5,4 @@
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
 include_recipe 'fort-pinecone::users'
+include_recipe 'fort-pinecone::motd'
