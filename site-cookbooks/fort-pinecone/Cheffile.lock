@@ -13,6 +13,8 @@ SITE
     ohai (5.2.5)
     seven_zip (3.1.0)
       windows (>= 0.0.0)
+    sudo (5.4.4)
+    user (0.7.0)
     windows (5.2.2)
     yum-epel (3.3.0)
 
@@ -24,4 +26,6 @@ PATH
 DEPENDENCIES
   fort-pinecone (>= 0)
   nginx (>= 0)
+  sudo (>= 0)
+  user (>= 0)
 

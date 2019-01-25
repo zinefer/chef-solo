@@ -9,6 +9,14 @@ describe user('root') do
 	it { should exist }
 end
 
+describe user('zinefer') do
+	it { should exist }
+end
+
+describe user('sibicle') do
+	it { should exist }
+end
+
 describe port(22) do
   it { should be_listening }
 end

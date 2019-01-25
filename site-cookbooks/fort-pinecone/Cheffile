@@ -5,6 +5,8 @@ site 'https://supermarket.getchef.com/api/v1'
 
 cookbook 'fort-pinecone', path: '.'
 
+cookbook 'user'
+cookbook 'sudo'
 cookbook 'nginx'
 
 # cookbook 'apache2', '>= 1.0.0'
