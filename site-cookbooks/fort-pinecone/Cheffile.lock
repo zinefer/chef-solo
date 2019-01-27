@@ -4,6 +4,7 @@ SITE
     build-essential (8.2.1)
       mingw (>= 1.1)
       seven_zip (>= 0.0.0)
+    golang (1.7.0)
     mingw (2.1.0)
       seven_zip (>= 0.0.0)
     nginx (9.0.0)
@@ -11,6 +12,9 @@ SITE
       ohai (>= 4.1.0)
       yum-epel (>= 0.0.0)
     ohai (5.2.5)
+    poise (2.8.2)
+    poise-service (1.5.2)
+      poise (~> 2.0)
     seven_zip (3.1.0)
       windows (>= 0.0.0)
     sudo (5.4.4)
@@ -18,13 +22,50 @@ SITE
     windows (5.2.2)
     yum-epel (3.3.0)
 
+GIT
+  remote: https://github.com/schubergphilis/chef-acme
+  ref: master
+  sha: 2871ed6ee184724c171497e4613ae1d3b7dbf7f7
+  specs:
+    acme (4.0.0)
+
+GIT
+  remote: https://github.com/schubergphilis/chef-acme
+  path: test/fixtures/cookbooks/acme_server
+  ref: master
+  sha: 2871ed6ee184724c171497e4613ae1d3b7dbf7f7
+  specs:
+    acme_server (0.1.0)
+      golang (= 1.7.0)
+      poise-service (>= 0.0.0)
+
+GIT
+  remote: https://github.com/theodi/chef-libcurl
+  ref: master
+  sha: 62488f89274e50f6b5c44c9a1e23e66d2e23fb4c
+  specs:
+    chef-libcurl (0.1.0)
+
 PATH
   remote: .
   specs:
     fort-pinecone (0.1.0)
+      acme (>= 0.0.0)
+      nginx (>= 0.0.0)
+      sudo (>= 0.0.0)
+      user (>= 0.0.0)
+
+PATH
+  remote: test/fixtures/cookbooks/install-fake-root-certificate
+  specs:
+    install-fake-root-certificate (0.1.0)
 
 DEPENDENCIES
+  acme (>= 0)
+  acme_server (>= 0)
+  chef-libcurl (>= 0)
   fort-pinecone (>= 0)
+  install-fake-root-certificate (>= 0)
   nginx (>= 0)
   sudo (>= 0)
   user (>= 0)

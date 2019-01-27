@@ -1,0 +1,26 @@
+server {
+  listen   80;
+
+  server_name  <%= @domain %>;
+  access_log  /var/log/nginx/<%= @name %>.access.log;
+
+  return 301 https://$host$request_uri;
+}
+
+
+server {
+  listen   443;
+
+  ssl    on;
+  ssl_certificate    /etc/ssl/<%= @domain %>.crt;
+  ssl_certificate_key    /etc/ssl/<%= @domain %>.key;
+
+  server_name  <%= @domain %>;
+  access_log /var/log/nginx/<%= @name %>.access.log;
+  error_log /var/log/nginx/<%= @name %>.error.log;
+
+  location / {
+    root   <%= @root %>;
+    index  index.html index.htm;
+  }
+}

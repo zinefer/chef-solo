@@ -7,13 +7,13 @@ cookbook 'fort-pinecone', path: '.'
 
 cookbook 'user'
 cookbook 'sudo'
+cookbook 'acme', github: 'schubergphilis/chef-acme'
 cookbook 'nginx'
 
-# cookbook 'apache2', '>= 1.0.0'
+# Test cookbooks
+cookbook 'install-fake-root-certificate',
+  path: 'test/fixtures/cookbooks/install-fake-root-certificate'
 
-# cookbook 'rvm',
-#   :git => 'https://github.com/fnichol/chef-rvm'
-
-# cookbook 'postgresql',
-#   :git => 'https://github.com/findsyou/cookbooks',
-#   :ref => 'postgresql-improvements'
+cookbook 'acme_server',
+  github: 'schubergphilis/chef-acme',
+  path: 'test/fixtures/cookbooks/acme_server'

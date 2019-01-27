@@ -21,4 +21,5 @@ chef_version '>= 13.0'
 
 depends 'user'
 depends 'sudo'
+depends 'acme'
 depends 'nginx'

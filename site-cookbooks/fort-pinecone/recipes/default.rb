@@ -6,3 +6,4 @@
 
 include_recipe 'fort-pinecone::users'
 include_recipe 'fort-pinecone::motd'
+include_recipe 'fort-pinecone::services'

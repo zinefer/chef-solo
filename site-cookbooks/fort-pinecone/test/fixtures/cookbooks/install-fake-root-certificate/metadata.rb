@@ -1,0 +1,7 @@
+name             'install-fake-root-certificate'
+maintainer       'James Kiefer'
+maintainer_email 'zinefer@gmail.com'
+license          'Apache-2.0'
+description      'Installs fake root certificate'
+long_description 'Installs fake root certificate for accepting LetsEncrypt staging certificates'
+version          '0.1.0'
