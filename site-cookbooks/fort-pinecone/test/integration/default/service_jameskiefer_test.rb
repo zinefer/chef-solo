@@ -14,5 +14,5 @@ end
 # Service testing
 
 describe command("curl --cacert /root/cacert.pem --resolve 'jameskiefer.com:443:127.0.0.1' https://jameskiefer.com/") do
- its("stdout") { should match "Maintenance" }
+  its("stdout") { should match "Maintenance" }
 end
