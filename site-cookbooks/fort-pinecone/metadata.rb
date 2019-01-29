@@ -21,6 +21,10 @@ chef_version '>= 13.0'
 
 depends 'user'
 depends 'sudo'
+depends 'poise-service'
 
 depends 'acme'
 depends 'nginx'
+
+depends 'sc-mongodb'
+depends 'nodejs'

@@ -12,3 +12,4 @@ include_recipe 'acme'
 
 include_recipe 'fort-pinecone::services-jameskiefer'
 include_recipe 'fort-pinecone::services-baphomet'
+include_recipe 'fort-pinecone::services-rocketchat'

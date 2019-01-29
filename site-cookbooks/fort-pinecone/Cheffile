@@ -8,8 +8,15 @@ cookbook 'fort-pinecone', path: '.'
 cookbook 'user'
 cookbook 'sudo'
 
+cookbook 'poise-service'
+
+# Http
 cookbook 'acme', github: 'schubergphilis/chef-acme'
 cookbook 'nginx'
+
+# RocketChat
+cookbook 'sc-mongodb'
+cookbook 'nodejs'
 
 # Test cookbooks
 cookbook 'install-fake-root-certificate',
