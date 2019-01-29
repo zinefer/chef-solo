@@ -17,7 +17,7 @@ describe directory('/opt/Rocket.Chat') do
   it { should exist }
 end
 
-describe command("curl --max-time 10 --retry 10 --retry-delay 10 --cacert /root/cacert.pem --resolve 'chat.jameskiefer.com:443:127.0.0.1' https://chat.jameskiefer.com/") do
+describe command("curl --max-time 10 --retry 20 --retry-delay 10 --cacert /root/cacert.pem --resolve 'chat.jameskiefer.com:443:127.0.0.1' https://chat.jameskiefer.com/") do
   its("stdout") { should match "chat" }
 end
 
