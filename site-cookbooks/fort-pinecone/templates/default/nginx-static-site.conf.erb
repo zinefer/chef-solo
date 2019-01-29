@@ -23,4 +23,8 @@ server {
     root   /var/www/<%= @name %>;
     index  index.html index.htm;
   }
+
+  location ~ /\.ht {
+    deny all;
+  }
 }

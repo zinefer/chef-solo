@@ -7,8 +7,19 @@
 # Install nginx
 include_recipe 'nginx'
 
+directory '/var/www/default'
+cookbook_file '/var/www/default/index.html' do
+  source 'default-site-content.html'
+end
+
+acme_selfsigned 'default' do
+  crt "/etc/ssl/default.crt"
+  key "/etc/ssl/default.key"
+end
+
 nginx_site 'default' do
-  enable false
+  template 'nginx-default-site.conf.erb'
+  notifies :reload, 'service[nginx]', :immediately
 end
 
 # Let's Encrypt Automatic Certificate Management Environment

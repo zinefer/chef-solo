@@ -1,0 +1,29 @@
+server {
+  listen 443 default_server;
+  server_name _;
+
+  ssl                       on;
+  ssl_certificate           /etc/ssl/default.crt;
+  ssl_certificate_key       /etc/ssl/default.key;
+
+  location / {
+    root   /var/www/default;
+    index  index.html index.htm;
+  }
+}
+
+server {
+  listen   80  default_server;
+
+  server_name _;
+  access_log  /var/log/nginx/default.access.log;
+
+  location / {
+    root   /var/www/default;
+    index  index.html index.htm;
+  }
+
+  location ~ /\.ht {
+    deny all;
+  }
+}
