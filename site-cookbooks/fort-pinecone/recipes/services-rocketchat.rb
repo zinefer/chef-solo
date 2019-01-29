@@ -15,8 +15,8 @@ node.default['mongodb']['config']['mongod']['replication']['oplogSizeMB'] = '102
 include_recipe 'sc-mongodb::default'
 
 node.default['nodejs']['install_method'] = 'binary'
-node.default['nodejs']['version'] = '8.11.3'
-node.default['nodejs']['binary']['checksum'] = '0d7e795c0579226c8b197353bbb9392cae802f4fefa4787a2c0e678beaf85cce'
+node.default['nodejs']['version'] = '8.11.4'
+node.default['nodejs']['binary']['checksum'] = '459144e361d64ca7362c37cc9717c044ef909d348cb5aa3f2b62538560a6085a'
 
 include_recipe 'nodejs'
 
@@ -33,10 +33,10 @@ execute 'tar -xzf rocket.chat.tgz -C rocket.chat' do
 end
 
 bash 'install-rocketchat' do
-  cwd '/home/rocketchat/rocket.chat'
+  cwd '/home/rocketchat/rocket.chat/bundle/programs/server'
   code <<-EOF
     npm install
-    mv bundle /opt/Rocket.Chat
+    mv ../../../bundle /opt/Rocket.Chat
     chown -R rocketchat:rocketchat /opt/Rocket.Chat
   EOF
   creates '/opt/Rocket.Chat'
@@ -53,17 +53,24 @@ nginx_site 'chat.jameskiefer' do
   notifies :reload, 'service[nginx]', :immediately
 end
 
-acme_selfsigned domain do
-  crt "/etc/ssl/#{domain}.crt"
-  key "/etc/ssl/#{domain}.key"
+acme_certificate 'chat.jameskiefer.com' do
+  crt       "/etc/ssl/#{domain}.crt"
+  key       "/etc/ssl/#{domain}.key"
+  wwwroot   '/var/www/rocketchat'
+  notifies  :reload, 'service[nginx]'
 end
 
 template '/etc/systemd/system/rocketchat.service' do
   source 'rocketchat.service.erb'
-  variables mongo: 'mongodb://localhost:27017/rocketchat', root: 'http://localhost:3000/', port: '3000'
+  variables mongo: 'mongodb://localhost:27017/rocketchat', root: 'https://chat.jameskiefer.com:3000/', port: '3000'
+  notifies :restart, 'service[rocketchat]'
 end
 
 systemd_unit 'rocketchat.service' do
   content lazy { ::File.read('/etc/systemd/system/rocketchat.service') }
   action :create
+end
+
+service 'rocketchat' do
+  action [:enable, :start]
 end

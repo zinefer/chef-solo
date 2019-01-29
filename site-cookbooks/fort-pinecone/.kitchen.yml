@@ -9,7 +9,6 @@ provisioner:
   # For example:
   #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
-  log_level: info
 
 verifier:
   name: inspec
@@ -25,6 +24,9 @@ suites:
       - recipe[acme_server]
       - recipe[install-fake-root-certificate]
       - recipe[fort-pinecone::default]
+    lifecycle:
+      post_converge:
+      - local: sleep 30 # :(
     verifier:
       inspec_tests:
         - test/integration/default

@@ -5,9 +5,8 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-
-describe package('node') do
-  it { should be_installed }
+describe command("node --version") do
+ its('stdout') { should match 'v8.11.4' }
 end
 
 describe package('graphicsmagick') do
@@ -18,6 +17,12 @@ describe directory('/opt/Rocket.Chat') do
   it { should exist }
 end
 
+# Make sure we didn't expose raw rocket chat to the internet
 describe port(3000) do
   it { should be_listening }
+  its('addresses') { should eq ['127.0.0.1'] }
+end
+
+describe command("curl --cacert /root/cacert.pem --resolve 'chat.jameskiefer.com:443:127.0.0.1' https://chat.jameskiefer.com/") do
+  its("stdout") { should match "chat" }
 end
