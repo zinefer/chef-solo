@@ -53,6 +53,8 @@ nginx_site 'chat.jameskiefer' do
   notifies :reload, 'service[nginx]', :immediately
 end
 
+directory '/var/www/rocketchat'
+
 acme_certificate 'chat.jameskiefer.com' do
   crt       "/etc/ssl/#{domain}.crt"
   key       "/etc/ssl/#{domain}.key"
