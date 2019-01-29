@@ -28,8 +28,6 @@ suites:
     verifier:
       inspec_tests:
         - test/integration/default
-        - test/integration/sevice_jameskiefer
-        - test/integration/sevice_baphomet
     attributes:
       acme:
         dir: https://127.0.0.1:14000/dir

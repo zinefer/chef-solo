@@ -8,15 +8,15 @@
 # Users
 
 describe user('root') do
-	it { should exist }
+  it { should exist }
 end
 
 describe user('zinefer') do
-	it { should exist }
+  it { should exist }
 end
 
 describe user('sibicle') do
-	it { should exist }
+  it { should exist }
 end
 
 # Ports
