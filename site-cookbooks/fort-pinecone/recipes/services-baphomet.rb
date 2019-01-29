@@ -76,6 +76,6 @@ template "#{bots}/core/settings.json" do
 end
 
 poise_service 'baphomet' do
-  command "#{home}/.local/bin/redbot-launcher baphomet --start --update --voice --no-prompt"
+  command "#{home}/.local/bin/redbot-launcher Baphomet --start --update --voice --no-prompt"
   user user
 end
