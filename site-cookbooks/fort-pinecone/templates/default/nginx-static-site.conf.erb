@@ -20,7 +20,7 @@ server {
   error_log /var/log/nginx/<%= @name %>.error.log;
 
   location / {
-    root   <%= @root %>;
+    root   /var/www/<%= @name %>;
     index  index.html index.htm;
   }
 }

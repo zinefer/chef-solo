@@ -11,7 +11,7 @@ end
 
 nginx_site 'jameskiefer' do
   template 'nginx-static-site.conf.erb'
-  variables name: 'jameskiefer', domain: 'jameskiefer.com', root: '/var/www/jameskiefer'
+  variables name: 'jameskiefer', domain: 'jameskiefer.com'
   notifies :reload, 'service[nginx]', :immediately
 end
 
