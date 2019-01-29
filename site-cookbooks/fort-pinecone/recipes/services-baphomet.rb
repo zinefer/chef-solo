@@ -74,3 +74,8 @@ template "#{bots}/core/settings.json" do
   source 'baphomet-settings.json.erb'
   variables token: data_bag_item('baphomet', 'token')['content']
 end
+
+poise_service 'baphomet' do
+  command "#{home}/.local/bin/redbot-launcher baphomet --start --update --voice --no-prompt"
+  user user
+end
