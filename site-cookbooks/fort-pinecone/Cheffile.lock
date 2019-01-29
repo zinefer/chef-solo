@@ -39,13 +39,6 @@ GIT
       golang (= 1.7.0)
       poise-service (>= 0.0.0)
 
-GIT
-  remote: https://github.com/theodi/chef-libcurl
-  ref: master
-  sha: 62488f89274e50f6b5c44c9a1e23e66d2e23fb4c
-  specs:
-    chef-libcurl (0.1.0)
-
 PATH
   remote: .
   specs:
@@ -63,7 +56,6 @@ PATH
 DEPENDENCIES
   acme (>= 0)
   acme_server (>= 0)
-  chef-libcurl (>= 0)
   fort-pinecone (>= 0)
   install-fake-root-certificate (>= 0)
   nginx (>= 0)

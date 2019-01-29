@@ -6,7 +6,11 @@ These are configuration files for various services that I manage.
 gem install chef
 gem install chef-dk # Only needed to create cookbooks
 gem install knife-solo
+gem install knife-solo_data_bag
 gem install librarian-chef
+
+export EDITOR=$(which vi)
+
 
 # Clone repo
 

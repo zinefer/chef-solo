@@ -11,3 +11,4 @@ include_recipe 'nginx'
 include_recipe 'acme'
 
 include_recipe 'fort-pinecone::services-jameskiefer'
+include_recipe 'fort-pinecone::services-baphomet'
