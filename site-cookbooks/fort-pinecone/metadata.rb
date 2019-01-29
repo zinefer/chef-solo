@@ -26,5 +26,7 @@ depends 'poise-service'
 depends 'acme'
 depends 'nginx'
 
+depends 'omnibus-gitlab'
+
 depends 'sc-mongodb'
 depends 'nodejs'
