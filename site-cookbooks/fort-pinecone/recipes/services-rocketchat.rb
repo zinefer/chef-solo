@@ -30,6 +30,7 @@ directory '/home/rocketchat/rocket.chat'
 
 execute 'tar -xzf rocket.chat.tgz -C rocket.chat' do
   cwd '/home/rocketchat'
+  creates '/home/rocketchat/rocket.chat'
 end
 
 bash 'install-rocketchat' do
