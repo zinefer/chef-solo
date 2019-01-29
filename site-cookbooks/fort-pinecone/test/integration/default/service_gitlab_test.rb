@@ -6,7 +6,7 @@
 # found at http://inspec.io/docs/reference/resources/
 
 describe command("curl --cacert /root/cacert.pem --resolve 'git.pinecone.industries:443:127.0.0.1' https://git.pinecone.industries/") do
-  its("stdout") { should match "gitlab" }
+  its("stdout") { should match "GitLab" }
 end
 
 # Make sure we didn't expose gitlab without https to the internet
