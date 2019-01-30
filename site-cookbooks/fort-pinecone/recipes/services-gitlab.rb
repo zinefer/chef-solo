@@ -11,6 +11,8 @@ node.default['omnibus-gitlab']['gitlab_rb']['nginx']['listen_addresses'] = ['loc
 node.default['omnibus-gitlab']['gitlab_rb']['nginx']['listen_port'] = 8080
 node.default['omnibus-gitlab']['gitlab_rb']['nginx']['listen_https'] = false
 
+node.default['omnibus-gitlab']['gitlab_rb']['prometheus_monitoring']['enable'] = false
+
 
 execute 'apt-get update' do
   action :nothing

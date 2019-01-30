@@ -8,6 +8,10 @@ server {
   server_name  <%= @domain %>;
   access_log  /var/log/nginx/<%= @name %>.access.log;
 
+  location /.well-known/acme-challenge {
+    root /var/www/<%= @name %>;
+  }
+
   return 301 https://$host$request_uri;
 }
 
@@ -24,7 +28,7 @@ server {
   error_log /var/log/nginx/<%= @name %>.error.log;
 
   location /.well-known/acme-challenge {
-    root /var/www/<%= @name %>/.well-known/acme-challenge;
+    root /var/www/<%= @name %>;
   }
 
   location / {

@@ -22,15 +22,17 @@ include_recipe 'nodejs'
 
 package 'graphicsmagick'
 
-remote_file '/home/rocketchat/rocket.chat.tgz' do
-  source 'https://releases.rocket.chat/latest/download'
-end
-
 directory '/home/rocketchat/rocket.chat'
 
-execute 'tar -xzf rocket.chat.tgz -C rocket.chat' do
+remote_file '/home/rocketchat/rocket.chat.tgz' do
+  source 'https://releases.rocket.chat/latest/download'
+  notifies :run, 'execute[tar-rocketchat]', :immediately
+end
+
+execute 'tar-rocketchat' do
+  command 'tar -xzf rocket.chat.tgz -C rocket.chat'
   cwd '/home/rocketchat'
-  creates '/home/rocketchat/rocket.chat'
+  action :nothing
 end
 
 bash 'install-rocketchat' do

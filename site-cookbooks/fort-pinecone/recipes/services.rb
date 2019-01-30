@@ -27,5 +27,5 @@ end
 
 include_recipe 'fort-pinecone::services-jameskiefer'
 include_recipe 'fort-pinecone::services-baphomet'
-include_recipe 'fort-pinecone::services-gitlab'
+#include_recipe 'fort-pinecone::services-gitlab'
 include_recipe 'fort-pinecone::services-rocketchat'
