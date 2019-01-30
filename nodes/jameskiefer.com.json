@@ -1,0 +1,8 @@
+{
+  "run_list": [
+  	"fort-pinecone::default"
+  ],
+  "automatic": {
+    "ipaddress": "jameskiefer.com"
+  }
+}
