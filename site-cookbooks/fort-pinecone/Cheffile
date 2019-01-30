@@ -11,7 +11,7 @@ cookbook 'sudo'
 cookbook 'poise-service'
 
 # Http
-cookbook 'acme', github: 'schubergphilis/chef-acme'
+cookbook 'acme', github: 'schubergphilis/chef-acme', ref: '2871ed6'
 cookbook 'nginx'
 
 # Gitlab
