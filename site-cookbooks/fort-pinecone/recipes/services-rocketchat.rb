@@ -4,7 +4,7 @@
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-domain = 'chat.jameskiefer.com'
+domain = 'chat.orman.club'
 
 user_account 'rocketchat'
 
@@ -45,12 +45,12 @@ bash 'install-rocketchat' do
   creates '/opt/Rocket.Chat'
 end
 
-acme_selfsigned 'chat.jameskiefer.com' do
+acme_selfsigned domain do
   crt "/etc/ssl/#{domain}.crt"
   key "/etc/ssl/#{domain}.key"
 end
 
-nginx_site 'chat.jameskiefer' do
+nginx_site domain do
   template 'nginx-rocketchat.conf.erb'
   variables name: 'rocketchat', domain: domain
   notifies :reload, 'service[nginx]', :immediately
@@ -58,7 +58,7 @@ end
 
 directory '/var/www/rocketchat'
 
-acme_certificate 'chat.jameskiefer.com' do
+acme_certificate domain do
   crt       "/etc/ssl/#{domain}.crt"
   key       "/etc/ssl/#{domain}.key"
   wwwroot   '/var/www/rocketchat'
@@ -67,7 +67,7 @@ end
 
 template '/etc/systemd/system/rocketchat.service' do
   source 'rocketchat.service.erb'
-  variables mongo: 'mongodb://localhost:27017/rocketchat', root: 'https://chat.jameskiefer.com:3000/', port: '3000'
+  variables mongo: 'mongodb://localhost:27017/rocketchat', root: "https://#{domain}/", port: '3000'
   notifies :restart, 'service[rocketchat]'
 end
 

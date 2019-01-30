@@ -1,11 +1,11 @@
 #
 # Cookbook:: fort-pinecone
-# Recipe:: sevices-jameskiefer
+# Recipe:: sevices-ormanclub
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-name   = 'jameskiefer'
-domain = 'jameskiefer.com'
+name   = 'orman.club'
+domain = 'orman.club'
 
 acme_selfsigned domain do
   crt     "/etc/ssl/#{domain}.crt"
