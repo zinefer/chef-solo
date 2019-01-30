@@ -6,7 +6,6 @@ These are configuration files for various services that I manage.
 gem install chef
 gem install chef-dk # Only needed to create cookbooks
 gem install knife-solo
-gem install knife-solo_data_bag
 gem install librarian-chef
 
 export EDITOR=$(which vi)
@@ -33,7 +32,7 @@ knife solo prepare user@host
 ## Server deploy
 
 ```
-knife solo cook user@host
+knife solo cook user@host --secret-file /path/to/key
 knife solo clean user@host
 ```
 
@@ -71,4 +70,23 @@ kitchen destroy
 or
 ```
 kitchen test
+```
+
+#### Notes
+
+Updating OpenVZ server:
+```
+apt-get update
+apt-get purge apache* nginx*
+rm -rf /var/www/html
+apt-get autoremove
+apt-get dist-upgrade
+reboot
+apt-get install apt-transport-https
+apt-get update
+```
+
+Creating databag (don't need knife solo data bag)
+```
+knife data bag create group bag_name -z -s ~/path/to/key
 ```
