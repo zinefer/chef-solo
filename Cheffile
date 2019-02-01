@@ -1,5 +1,0 @@
-site 'https://supermarket.chef.io/api/v1'
-
-cookbook 'fort-pinecone', path: 'site-cookbooks/fort-pinecone'
-
-cookbook 'acme', github: 'schubergphilis/chef-acme', ref: '2871ed6'

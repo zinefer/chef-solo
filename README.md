@@ -6,7 +6,7 @@ These are configuration files for various services that I manage.
 gem install chef
 gem install chef-dk # Only needed to create cookbooks
 gem install knife-solo
-gem install librarian-chef
+gem install berkshelf
 
 export EDITOR=$(which vi)
 
@@ -32,6 +32,7 @@ knife solo prepare user@host
 ## Server deploy
 
 ```
+berks vendor cookbooks/
 knife solo cook user@host --secret-file /path/to/key
 knife solo clean user@host
 ```

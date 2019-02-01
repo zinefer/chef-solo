@@ -1,0 +1,13 @@
+source 'https://supermarket.chef.io'
+metadata
+
+cookbook 'acme', github: 'schubergphilis/chef-acme', ref: '2871ed6'
+
+group :integration do
+  cookbook 'install-fake-root-certificate',
+    path: 'test/fixtures/cookbooks/install-fake-root-certificate'
+
+  cookbook 'acme_server',
+    github: 'schubergphilis/chef-acme',
+    rel:    'test/fixtures/cookbooks/acme_server'
+end
