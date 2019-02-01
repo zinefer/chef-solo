@@ -24,6 +24,7 @@ end
 
 file "/var/www/#{name}/index.html" do
   content   'Maintenance'
+  action :create_if_missing
 end
 
 acme_certificate domain do
