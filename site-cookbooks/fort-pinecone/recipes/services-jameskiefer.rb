@@ -4,18 +4,18 @@
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-name   = 'jameskiefer'
-domain = 'jameskiefer.com'
+name   =   'jameskiefer'
+domain =   'jameskiefer.com'
 
 acme_selfsigned domain do
-  crt     "/etc/ssl/#{domain}.crt"
-  key     "/etc/ssl/#{domain}.key"
+  crt       "/etc/ssl/#{domain}.crt"
+  key       "/etc/ssl/#{domain}.key"
 end
 
 nginx_site domain do
-  template 'nginx-static-site.conf.erb'
+  template  'nginx-static-site.conf.erb'
   variables name: name, domain: domain
-  notifies :reload, 'service[nginx]', :immediately
+  notifies  :reload, 'service[nginx]', :immediately
 end
 
 directory "/var/www/#{name}" do
@@ -23,7 +23,7 @@ directory "/var/www/#{name}" do
 end
 
 file "/var/www/#{name}/index.html" do
-  content 'Maintenance'
+  content   'Maintenance'
 end
 
 acme_certificate domain do

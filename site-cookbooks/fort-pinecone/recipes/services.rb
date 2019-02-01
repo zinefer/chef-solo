@@ -10,7 +10,10 @@ include_recipe 'acme'
 # Install nginx
 include_recipe 'nginx'
 
-directory '/var/www/default'
+directory '/var/www/default' do
+  recursive true
+end
+
 cookbook_file '/var/www/default/index.html' do
   source 'default-site-content.html'
 end
