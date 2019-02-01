@@ -21,6 +21,9 @@ chef_version '>= 13.0'
 
 depends 'user'
 depends 'sudo'
+
+depends 'fail2ban'
+
 depends 'poise-service'
 
 depends 'acme'

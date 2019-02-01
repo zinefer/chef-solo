@@ -8,6 +8,8 @@ cookbook 'fort-pinecone', path: '.'
 cookbook 'user'
 cookbook 'sudo'
 
+cookbook 'fail2ban'
+
 cookbook 'poise-service'
 
 # Http

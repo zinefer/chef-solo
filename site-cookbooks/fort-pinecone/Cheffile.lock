@@ -9,6 +9,8 @@ SITE
       mingw (>= 1.1)
       seven_zip (>= 0.0.0)
     chef-vault (3.1.1)
+    fail2ban (5.0.2)
+      yum-epel (>= 0.0.0)
     gitlab-vault (0.2.0)
       chef-vault (>= 0.0.0)
     golang (1.7.0)
@@ -42,7 +44,7 @@ SITE
 
 GIT
   remote: https://github.com/schubergphilis/chef-acme
-  ref: master
+  ref: 2871ed6
   sha: 2871ed6ee184724c171497e4613ae1d3b7dbf7f7
   specs:
     acme (4.0.0)
@@ -74,6 +76,7 @@ PATH
 DEPENDENCIES
   acme (>= 0)
   acme_server (>= 0)
+  fail2ban (>= 0)
   fort-pinecone (>= 0)
   install-fake-root-certificate (>= 0)
   nginx (>= 0)
