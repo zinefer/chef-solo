@@ -4,6 +4,8 @@
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
+include_recipe 'fort-pinecone::packages'
+
 include_recipe 'fail2ban::default'
 
 include_recipe 'fort-pinecone::users'
