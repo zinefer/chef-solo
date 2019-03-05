@@ -1,7 +1,23 @@
 source 'https://supermarket.chef.io'
 metadata
 
+cookbook 'user'
+cookbook 'sudo'
+
+cookbook 'fail2ban'
+
+cookbook 'poise-service'
+
+# Http
 cookbook 'acme', github: 'schubergphilis/chef-acme', ref: '2871ed6'
+cookbook 'nginx'
+
+# Gitlab
+cookbook 'omnibus-gitlab'
+
+# RocketChat
+cookbook 'sc-mongodb'
+cookbook 'nodejs'
 
 group :integration do
   cookbook 'install-fake-root-certificate',
@@ -9,5 +25,6 @@ group :integration do
 
   cookbook 'acme_server',
     github: 'schubergphilis/chef-acme',
-    rel:    'test/fixtures/cookbooks/acme_server'
+    rel:    'test/fixtures/cookbooks/acme_server',
+    ref:    '2871ed6'
 end

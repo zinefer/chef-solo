@@ -16,7 +16,6 @@ GRAPH
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
   chef-vault (3.1.1)
-  compat_resource (12.19.1)
   fail2ban (5.0.2)
     yum-epel (>= 0.0.0)
   fort-pinecone (0.1.0)
