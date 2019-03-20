@@ -12,8 +12,8 @@ action :create do
     web_root = "/var/www/#{new_resource.name}"
 
     acme_selfsigned new_resource.domain do
-      crt       "/etc/ssl/#{domain}.crt"
-      key       "/etc/ssl/#{domain}.key"
+      crt       "/etc/ssl/#{new_resource.domain}.crt"
+      key       "/etc/ssl/#{new_resource.domain}.key"
     end
 
     nginx_site new_resource.domain do
