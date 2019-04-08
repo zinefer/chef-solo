@@ -39,7 +39,7 @@ knife solo clean user@host
 
 ## Testing
 
-- Install VirtualBox 
+- Install VirtualBox
 - Add `C:\Program Files\Oracle\VirtualBox` to windows PATH
 
 ```
@@ -50,7 +50,7 @@ sudo dpkg -i vagrant_2.2.3_x86_64.deb
 - Install Vagrant for Windows (versions must match)
 
 ```
-gem install kitchen 
+gem install kitchen
 gem install kitchen-vagrant
 gem install kitchen-inspec
 
@@ -89,5 +89,10 @@ apt-get update
 
 Creating databag (don't need knife solo data bag)
 ```
-knife data bag create group bag_name -z -s ~/path/to/key
+knife data bag create group bag_name -z --secret-file ~/path/to/key
+```
+
+Test databag encryption
+```
+knife data bag show group bag_name -z --secret-file ~/path/to/key
 ```

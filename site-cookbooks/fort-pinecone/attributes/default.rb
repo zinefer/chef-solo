@@ -1,0 +1,1 @@
+default['aws']['cloudwatch']['nginx_log_files'] = []

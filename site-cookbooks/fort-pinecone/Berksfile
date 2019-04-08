@@ -8,6 +8,9 @@ cookbook 'fail2ban'
 
 cookbook 'poise-service'
 
+# Metrics
+cookbook 'aws_cloudwatch'
+
 # Http
 cookbook 'acme', github: 'schubergphilis/chef-acme', ref: '2871ed6'
 cookbook 'nginx'

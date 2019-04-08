@@ -26,6 +26,8 @@ depends 'fail2ban'
 
 depends 'poise-service'
 
+depends 'aws_cloudwatch'
+
 depends 'acme'
 depends 'nginx'
 

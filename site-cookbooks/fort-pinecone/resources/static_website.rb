@@ -44,4 +44,5 @@ action :create do
       notifies  :reload, 'service[nginx]'
     end
 
+    node.default['aws']['cloudwatch']['nginx_log_files'] << new_resource.name
 end
