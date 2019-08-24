@@ -8,7 +8,7 @@ user = 'baphomet-bot'
 home = '/home/baphomet-bot'
 bots = '/var/bots/baphomet'
 
-# ---- Install Python3.6
+# ---- Install Python3.7
 
 package 'software-properties-common'
 
@@ -18,7 +18,8 @@ apt_repository 'deadsnakes' do
   distribution node['lsb']['codename']
 end
 
-package 'python3.6-dev'
+package 'python3.7'
+package 'python3.7-dev'
 package 'build-essential'
 package 'libssl-dev'
 package 'libffi-dev'
@@ -28,7 +29,7 @@ remote_file '/root/get-pip.py' do
   source 'https://bootstrap.pypa.io/get-pip.py'
 end
 
-execute "python3.6 /root/get-pip.py 'pip==18.1'" do
+execute "python3.7 /root/get-pip.py 'pip==19.2.2'" do
   creates '/usr/local/bin/pip3'
 end
 
@@ -47,7 +48,7 @@ execute 'chown-baphomet-home' do
   action :nothing
 end
 
-execute 'pip3 install --user -U --process-dependency-links --no-cache-dir Red-DiscordBot[voice]' do
+execute 'python3.7 -m pip install --user -U Red-DiscordBot[voice]' do
   cwd bots
   environment HOME: home, USER: user
   user user
@@ -76,6 +77,7 @@ template "#{bots}/core/settings.json" do
 end
 
 poise_service 'baphomet' do
-  command "#{home}/.local/bin/redbot-launcher Baphomet --start --update --voice --no-prompt"
+  command "#{home}/.local/bin/redbot-launcher Baphomet --start --update --no-prompt"
+  options :systemd, restart_mode: 'always'
   user user
 end
