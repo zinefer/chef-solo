@@ -42,6 +42,7 @@ action :create do
       key       "/etc/ssl/#{new_resource.domain}.key"
       wwwroot   web_root
       notifies  :reload, 'service[nginx]'
+      ignore_failure true
     end
 
     node.default['aws']['cloudwatch']['nginx_log_files'] << new_resource.name
