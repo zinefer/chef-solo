@@ -29,8 +29,8 @@ nginx_site 'default' do
 end
 
 include_recipe 'fort-pinecone::services-jameskiefer'
-include_recipe 'fort-pinecone::services-ormanclub'
-include_recipe 'fort-pinecone::services-baphomet'
+#include_recipe 'fort-pinecone::services-ormanclub'
+#include_recipe 'fort-pinecone::services-baphomet'
 #include_recipe 'fort-pinecone::services-gitlab'
 #include_recipe 'fort-pinecone::services-rocketchat'
 include_recipe 'fort-pinecone::services-realsil'
